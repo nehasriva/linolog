@@ -1,0 +1,20 @@
+# Sample metadata.yaml for LinoLog
+# This file is optional - the system will generate metadata automatically
+
+title: "Redwoods Rise"
+date: "2025-01-15"
+edition: "5"
+size: "9x12"
+medium: "Linocut"
+paper_type: "Mulberry"
+paper_width: "90 gsm"
+mounted: true
+combined_pieces: 1
+blocks_used: 2
+reduction: true
+carving_tools: ["Pfeil U-gouge", "Flexcut V-gouge"]
+brayer_type: "Speedball soft rubber"
+burnish_type: "Spoon"
+colors_used: ["Black", "Forest Green", "Ochre"]
+tags: ["nature", "landscape", "reduction", "multi_color"]
+notes: "Inspired by California redwoods. Used reduction technique with 3 colors." 
