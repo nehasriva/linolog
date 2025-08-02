@@ -229,10 +229,18 @@ class PrintProcessor:
             current_value = metadata.get(field, '')
             display_name = self._get_display_name(field)
             
+            # Show available options for tool-related fields
+            options_text = ""
+            if field in ['carving_tools', 'brayer_type', 'burnish_type', 'paper_type']:
+                from tools_normalizer import TOOL_STANDARDS
+                if field in TOOL_STANDARDS:
+                    options = list(TOOL_STANDARDS[field].keys())
+                    options_text = f" (options: {', '.join(options)})"
+            
             if current_value:
-                print(f"   {display_name}: {current_value} (current)")
+                print(f"   {display_name}: {current_value} (current){options_text}")
             else:
-                print(f"   {display_name}: (optional)")
+                print(f"   {display_name}: (optional){options_text}")
             
             user_input = input(f"   Enter {display_name} (or press Enter to skip): ").strip()
             if user_input:
