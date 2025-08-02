@@ -28,7 +28,7 @@ A lightweight, Python-based, agent-assisted logging system that watches a folder
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/linolog.git
+   git clone https://github.com/nehasriva/linolog.git
    cd linolog
    ```
 
@@ -95,6 +95,7 @@ A lightweight, Python-based, agent-assisted logging system that watches a folder
 - `brayer_type`: Type of brayer used (auto-normalized)
 - `burnish_type`: Burnishing method (auto-normalized)
 - `colors_used`: Colors in the print (auto-detected)
+- `series`: Series name for grouping related prints
 - `tags`: Searchable tags (auto-generated)
 - `notes`: Additional notes
 
@@ -234,9 +235,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/linolog/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/linolog/discussions)
-- **Documentation**: [Wiki](https://github.com/yourusername/linolog/wiki)
+- **Issues**: [GitHub Issues](https://github.com/nehasriva/linolog/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/nehasriva/linolog/discussions)
+- **Documentation**: [Wiki](https://github.com/nehasriva/linolog/wiki)
 
 ---
 

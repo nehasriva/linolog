@@ -89,6 +89,7 @@ class SheetWriter:
             'brayer_type': 'Brayer Type',
             'burnish_type': 'Burnish Type',
             'colors_used': 'Colors Used',
+            'series': 'Series',
             'tags': 'Tags',
             'notes': 'Notes'
         }

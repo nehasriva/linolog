@@ -33,7 +33,7 @@ We welcome feature suggestions! When suggesting a feature:
 1. **Fork the repository**
 2. **Clone your fork**:
    ```bash
-   git clone https://github.com/yourusername/linolog.git
+   git clone https://github.com/nehasriva/linolog.git
    cd linolog
    ```
 3. **Create a virtual environment**:

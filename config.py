@@ -44,7 +44,7 @@ class Config:
         'Title', 'Date', 'No. of Editions', 'Size', 'Medium', 'Paper Type',
         'Paper Width', 'Mounted', 'Combined Pieces', 'Blocks Used',
         'Reduction', 'Carving Tools', 'Brayer Type', 'Burnish Type',
-        'Colors Used', 'Tags', 'Notes'
+        'Colors Used', 'Series', 'Tags', 'Notes'
     ]
     
     @classmethod

@@ -53,11 +53,11 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/linolog"
-Documentation = "https://github.com/yourusername/linolog/wiki"
-Repository = "https://github.com/yourusername/linolog"
-"Bug Tracker" = "https://github.com/yourusername/linolog/issues"
-"Discussions" = "https://github.com/yourusername/linolog/discussions"
+Homepage = "https://github.com/nehasriva/linolog"
+Documentation = "https://github.com/nehasriva/linolog/wiki"
+Repository = "https://github.com/nehasriva/linolog"
+"Bug Tracker" = "https://github.com/nehasriva/linolog/issues"
+"Discussions" = "https://github.com/nehasriva/linolog/discussions"
 
 [project.scripts]
 linolog = "main:main"

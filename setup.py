@@ -25,11 +25,11 @@ setup(
     description="A lightweight, Python-based, agent-assisted logging system for linocut prints",
     long_description=read_readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/linolog",
+    url="https://github.com/nehasriva/linolog",
     project_urls={
-        "Bug Reports": "https://github.com/yourusername/linolog/issues",
-        "Source": "https://github.com/yourusername/linolog",
-        "Documentation": "https://github.com/yourusername/linolog/wiki",
+        "Bug Reports": "https://github.com/nehasriva/linolog/issues",
+        "Source": "https://github.com/nehasriva/linolog",
+        "Documentation": "https://github.com/nehasriva/linolog/wiki",
     },
     packages=find_packages(),
     classifiers=[

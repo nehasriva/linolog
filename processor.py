@@ -223,7 +223,7 @@ class PrintProcessor:
         # Ask if user wants to add optional fields
         print("\n📝 Optional fields:")
         optional_fields = ['paper_width', 'mounted', 'combined_pieces', 'reduction', 
-                         'carving_tools', 'brayer_type', 'burnish_type', 'notes']
+                         'carving_tools', 'brayer_type', 'burnish_type', 'series', 'notes']
         
         for field in optional_fields:
             current_value = metadata.get(field, '')
@@ -259,6 +259,7 @@ class PrintProcessor:
             'carving_tools': 'Carving Tools',
             'brayer_type': 'Brayer Type',
             'burnish_type': 'Burnish Type',
+            'series': 'Series',
             'notes': 'Notes'
         }
         return display_names.get(field, field)

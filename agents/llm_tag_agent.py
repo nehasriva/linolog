@@ -122,6 +122,8 @@ Example: reduction_print, california_landscape, forest_theme, earth_tones, hand_
             context_parts.append(f"Reduction: {metadata['reduction']}")
         if 'mounted' in metadata:
             context_parts.append(f"Mounted: {metadata['mounted']}")
+        if 'series' in metadata:
+            context_parts.append(f"Series: {metadata['series']}")
         
         return ', '.join(context_parts)
     
