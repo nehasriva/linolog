@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="linolog-logo.png" alt="LinoLog" width="600">
+  <img src="linolog-logo.png" alt="LinoLog" width="300">
 </p>
 
 <h1 align="center">LinoLog</h1>
