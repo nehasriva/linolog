@@ -14,38 +14,40 @@ from linolog.config import Config
 from linolog.folder_watcher import FolderWatcher
 from linolog.processor import PrintProcessor
 
+
 def setup_logging():
     """Set up logging configuration."""
-    log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    
+    log_format = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
     # Configure logging
     logging.basicConfig(
         level=getattr(logging, Config.LOG_LEVEL),
         format=log_format,
         handlers=[
             logging.FileHandler(Config.LOG_FILE),
-            logging.StreamHandler(sys.stdout)
-        ]
+            logging.StreamHandler(sys.stdout),
+        ],
     )
+
 
 def main():
     """Main entry point for LinoLog."""
     print("🖨️  LinoLog - Linocut Print Metadata Logger")
     print("=" * 50)
-    
+
     # Set up logging
     setup_logging()
     logger = logging.getLogger(__name__)
-    
+
     try:
         # Validate configuration
         Config.validate_config()
         logger.info("Configuration validated successfully")
-        
+
         # Initialize processor
         processor = PrintProcessor()
         logger.info("Processor initialized")
-        
+
         # Print startup information
         stats = processor.get_processing_stats()
         print(f"📊 Processing Stats:")
@@ -53,19 +55,19 @@ def main():
         print(f"   - Enabled agents: {stats['enabled_agents']}")
         print(f"   - Total agents: {stats['total_agents']}")
         print()
-        
+
         # Scan existing folders first
         print("🔍 Scanning existing folders...")
         processor.scan_existing_folders()
-        
+
         # Set up folder watcher
         def on_new_folder(folder_path):
             """Callback for new folder detection."""
             print(f"📁 Processing folder: {os.path.basename(folder_path)}")
             processor.process_folder(folder_path)
-        
+
         watcher = FolderWatcher(Config.WATCH_DIRECTORY, on_new_folder)
-        
+
         # Start watching
         print(f"👀 Watching directory: {Config.WATCH_DIRECTORY}")
         print("📋 Folder handling improvements:")
@@ -75,9 +77,9 @@ def main():
         print("   - Handles copied, moved, and created folders")
         print("Press Ctrl+C to stop...")
         print()
-        
+
         watcher.start()
-        
+
         # Keep running
         try:
             while True:
@@ -86,7 +88,7 @@ def main():
             print("\n🛑 Stopping LinoLog...")
             watcher.stop()
             logger.info("LinoLog stopped by user")
-            
+
     except ValueError as e:
         print(f"❌ Configuration error: {e}")
         print("Please check your .env file and ensure all required values are set.")
@@ -96,5 +98,6 @@ def main():
         print(f"❌ Error: {e}")
         sys.exit(1)
 
+
 if __name__ == "__main__":
-    main() 
+    main()

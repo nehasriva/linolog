@@ -10,6 +10,7 @@ from linolog.config import Config
 from linolog.metadata_loader import MetadataLoader
 from linolog.sheet_writer import SheetWriter
 
+
 def test_config():
     """Test configuration loading."""
     print("🔧 Testing configuration...")
@@ -20,6 +21,7 @@ def test_config():
     except Exception as e:
         print(f"❌ Configuration error: {e}")
         return False
+
 
 def test_google_sheets():
     """Test Google Sheets connection."""
@@ -33,6 +35,7 @@ def test_google_sheets():
         print(f"❌ Google Sheets error: {e}")
         return False
 
+
 def test_metadata_loader():
     """Test metadata loader."""
     print("📝 Testing metadata loader...")
@@ -43,6 +46,7 @@ def test_metadata_loader():
     except Exception as e:
         print(f"❌ Metadata loader error: {e}")
         return False
+
 
 def test_watch_directory():
     """Test watch directory."""
@@ -58,29 +62,30 @@ def test_watch_directory():
         print(f"❌ Watch directory error: {e}")
         return False
 
+
 def main():
     """Run all tests."""
     print("🧪 LinoLog Setup Test")
     print("=" * 30)
-    
+
     tests = [
         test_config,
         test_google_sheets,
         test_metadata_loader,
-        test_watch_directory
+        test_watch_directory,
     ]
-    
+
     passed = 0
     total = len(tests)
-    
+
     for test in tests:
         if test():
             passed += 1
         print()
-    
+
     print("=" * 30)
     print(f"📊 Test Results: {passed}/{total} passed")
-    
+
     if passed == total:
         print("🎉 All tests passed! LinoLog is ready to use.")
         print("Run 'linolog' to start the system.")
@@ -88,5 +93,6 @@ def main():
         print("⚠️  Some tests failed. Please check the setup instructions.")
         sys.exit(1)
 
+
 if __name__ == "__main__":
-    main() 
+    main()
