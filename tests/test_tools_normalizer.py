@@ -5,17 +5,17 @@ Test script to demonstrate tools normalizer functionality.
 
 import os
 import sys
-from processor import PrintProcessor
-from config import Config
+import tempfile
+from linolog.processor import PrintProcessor
+from linolog.config import Config
 
 def test_tools_normalizer():
     """Test tools normalizer functionality."""
     print("🔧 Testing Tools Normalizer")
     print("=" * 40)
-    
-    # Create a test folder
-    test_folder = "/Users/nehasrivastava/LinocutArchive/test_tools_normalizer"
-    os.makedirs(test_folder, exist_ok=True)
+
+    # Create a temporary test folder
+    test_folder = tempfile.mkdtemp(prefix="linolog_test_tools_")
     
     # Create a metadata file with various tool names that need normalization
     metadata_content = """

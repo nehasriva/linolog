@@ -24,7 +24,7 @@ class BaseAgent(ABC):
     
     def is_enabled(self) -> bool:
         """Check if this agent is enabled in configuration."""
-        from config import Config
+        from linolog.config import Config
         agent_name = self.__class__.__name__.lower()
         
         if hasattr(Config, f'ENABLE_{agent_name.upper()}'):

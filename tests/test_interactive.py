@@ -5,17 +5,17 @@ Test script to demonstrate interactive metadata prompting.
 
 import os
 import sys
-from processor import PrintProcessor
-from config import Config
+import tempfile
+from linolog.processor import PrintProcessor
+from linolog.config import Config
 
 def test_interactive_metadata():
     """Test interactive metadata prompting."""
     print("🧪 Testing Interactive Metadata Prompting")
     print("=" * 50)
-    
-    # Create a test folder
-    test_folder = "/Users/nehasrivastava/LinocutArchive/test_interactive3"
-    os.makedirs(test_folder, exist_ok=True)
+
+    # Create a temporary test folder
+    test_folder = tempfile.mkdtemp(prefix="linolog_test_interactive_")
     
     # Create a metadata file with some missing fields (to test defaults)
     metadata_content = """

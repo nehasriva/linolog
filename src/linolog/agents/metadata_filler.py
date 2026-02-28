@@ -2,7 +2,7 @@ import os
 import re
 from typing import Dict, Any
 from .base_agent import BaseAgent
-from config import Config
+from linolog.config import Config
 
 class MetadataFillerAgent(BaseAgent):
     """Agent that fills in missing required metadata fields using heuristics."""

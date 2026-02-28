@@ -1,10 +1,18 @@
-# LinoLog - Linocut Print Metadata Logger
+<p align="center">
+  <img src="linolog-logo.png" alt="LinoLog" width="200">
+</p>
 
-A lightweight, Python-based, agent-assisted logging system that watches a folder for new linocut print drops, auto-generates metadata, and logs everything into a structured Google Sheet.
+<h1 align="center">LinoLog</h1>
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
+<p align="center">
+  A lightweight, Python-based, agent-assisted logging system that watches a folder for new linocut print drops, auto-generates metadata, and logs everything into a structured Google Sheet.
+</p>
+
+<p align="center">
+  <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a>
+  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg" alt="Status">
+</p>
 
 ## ✨ Features
 
@@ -32,9 +40,9 @@ A lightweight, Python-based, agent-assisted logging system that watches a folder
    cd linolog
    ```
 
-2. **Install dependencies**
+2. **Install the package**
    ```bash
-   pip install -r requirements.txt
+   pip install -e .
    ```
 
 3. **Set up Google Service Account**
@@ -56,13 +64,13 @@ A lightweight, Python-based, agent-assisted logging system that watches a folder
 
 4. **Configure environment**
    ```bash
-   cp .env.example .env
+   cp env.example .env
    # Edit .env with your settings
    ```
 
 5. **Run the system**
    ```bash
-   python main.py
+   linolog
    ```
 
 ## 📁 Folder Structure
@@ -162,7 +170,7 @@ WATCH_DIRECTORY=/LinocutArchive
 ## 📝 Usage
 
 1. **Drop a new print folder** into `~/LinocutArchive/`
-2. **Run the system**: `python main.py`
+2. **Run the system**: `linolog`
 3. **System automatically**:
    - Detects the new folder (with 2-second delay)
    - Loads existing metadata if present
@@ -187,7 +195,7 @@ WATCH_DIRECTORY=/LinocutArchive
 ### Common Issues
 
 - **Service Account Issues**: Ensure the service account email has edit access to your Google Sheet
-- **Missing Dependencies**: Run `pip install -r requirements.txt`
+- **Missing Dependencies**: Run `pip install -e .`
 - **Permission Errors**: Check folder permissions for `/LinocutArchive/`
 - **LLM Issues**: Ensure API key is set if using LLM agents
 - **Folder Detection**: Check logs for detailed event information
@@ -218,10 +226,10 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 The system is modular and extensible:
 
-- **Add new agents**: Create files in `agents/` directory implementing `BaseAgent`
-- **Add new utilities**: Create standalone functions like `tools_normalizer.py`
-- **Modify processing**: Edit `processor.py` for custom workflows
-- **Extend normalization**: Add new categories to `TOOL_STANDARDS` in `tools_normalizer.py`
+- **Add new agents**: Create files in `src/linolog/agents/` implementing `BaseAgent`
+- **Add new utilities**: Create standalone functions like `src/linolog/tools_normalizer.py`
+- **Modify processing**: Edit `src/linolog/processor.py` for custom workflows
+- **Extend normalization**: Add new categories to `TOOL_STANDARDS` in `src/linolog/tools_normalizer.py`
 
 ## 📄 License
 
@@ -238,7 +246,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Issues**: [GitHub Issues](https://github.com/nehasriva/linolog/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/nehasriva/linolog/discussions)
 - **Documentation**: [Wiki](https://github.com/nehasriva/linolog/wiki)
-
----
-
-**Made with ❤️ for the printmaking community** 

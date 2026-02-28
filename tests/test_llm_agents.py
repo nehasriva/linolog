@@ -5,23 +5,23 @@ Test script to demonstrate LLM-enhanced agents functionality.
 
 import os
 import sys
-from processor import PrintProcessor
-from config import Config
+import tempfile
+from linolog.processor import PrintProcessor
+from linolog.config import Config
 
 def test_llm_agents():
     """Test LLM-enhanced agents functionality."""
     print("🧠 Testing LLM-Enhanced Agents")
     print("=" * 40)
-    
+
     # Check if LLM is enabled
     if not Config.ENABLE_LLM:
         print("⚠️  LLM is not enabled. Set ENABLE_LLM=true in .env to test LLM agents.")
         print("   The system will use traditional agents instead.")
         return
-    
-    # Create a test folder
-    test_folder = "/Users/nehasrivastava/LinocutArchive/test_llm_agents"
-    os.makedirs(test_folder, exist_ok=True)
+
+    # Create a temporary test folder
+    test_folder = tempfile.mkdtemp(prefix="linolog_test_llm_")
     
     # Create a metadata file with rich content for LLM analysis
     metadata_content = """

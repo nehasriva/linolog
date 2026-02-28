@@ -2,7 +2,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from typing import Dict, Any, List
 import logging
-from config import Config
+from linolog.config import Config
 
 class SheetWriter:
     """Handles writing metadata to Google Sheets."""

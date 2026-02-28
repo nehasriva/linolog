@@ -41,13 +41,13 @@ We welcome feature suggestions! When suggesting a feature:
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
-4. **Install dependencies**:
+4. **Install the package with dev dependencies**:
    ```bash
-   pip install -r requirements.txt
+   pip install -e ".[dev]"
    ```
 5. **Set up your environment**:
    ```bash
-   cp .env.example .env
+   cp env.example .env
    # Edit .env with your settings
    ```
 
@@ -92,26 +92,26 @@ We welcome feature suggestions! When suggesting a feature:
 
 ### Core Components
 
-- `main.py`: Application entry point
-- `config.py`: Configuration management
-- `processor.py`: Main orchestration logic
-- `folder_watcher.py`: Folder monitoring system
-- `metadata_loader.py`: YAML metadata parsing
-- `sheet_writer.py`: Google Sheets integration
-- `tools_normalizer.py`: Tool name standardization
+- `src/linolog/main.py`: Application entry point
+- `src/linolog/config.py`: Configuration management
+- `src/linolog/processor.py`: Main orchestration logic
+- `src/linolog/folder_watcher.py`: Folder monitoring system
+- `src/linolog/metadata_loader.py`: YAML metadata parsing
+- `src/linolog/sheet_writer.py`: Google Sheets integration
+- `src/linolog/tools_normalizer.py`: Tool name standardization
 
 ### Agent System
 
-- `agents/base_agent.py`: Base class for all agents
-- `agents/metadata_filler.py`: Fills missing metadata
-- `agents/color_agent.py`: Traditional color detection
-- `agents/llm_color_agent.py`: LLM-enhanced color analysis
-- `agents/tag_agent.py`: Traditional tag generation
-- `agents/llm_tag_agent.py`: LLM-enhanced tag generation
+- `src/linolog/agents/base_agent.py`: Base class for all agents
+- `src/linolog/agents/metadata_filler.py`: Fills missing metadata
+- `src/linolog/agents/color_agent.py`: Traditional color detection
+- `src/linolog/agents/llm_color_agent.py`: LLM-enhanced color analysis
+- `src/linolog/agents/tag_agent.py`: Traditional tag generation
+- `src/linolog/agents/llm_tag_agent.py`: LLM-enhanced tag generation
 
 ### Adding New Agents
 
-1. **Create a new file** in the `agents/` directory
+1. **Create a new file** in the `src/linolog/agents/` directory
 2. **Inherit from `BaseAgent`**:
    ```python
    from .base_agent import BaseAgent
@@ -121,8 +121,8 @@ We welcome feature suggestions! When suggesting a feature:
            # Your processing logic here
            return metadata
    ```
-3. **Add to processor** in `processor.py`
-4. **Add configuration option** in `config.py`
+3. **Add to processor** in `src/linolog/processor.py`
+4. **Add configuration option** in `src/linolog/config.py`
 5. **Update documentation**
 
 ### Adding New Utilities
@@ -141,7 +141,7 @@ We welcome feature suggestions! When suggesting a feature:
 python -m pytest
 
 # Run with coverage
-python -m pytest --cov=.
+python -m pytest --cov=linolog
 
 # Run specific test file
 python -m pytest tests/test_processor.py
@@ -184,8 +184,7 @@ We use [Semantic Versioning](https://semver.org/):
 ### Release Checklist
 
 1. **Update version** in relevant files
-2. **Update CHANGELOG.md** with changes
-3. **Run all tests** to ensure everything works
+2. **Run all tests** to ensure everything works
 4. **Update documentation** if needed
 5. **Create release notes** on GitHub
 6. **Tag the release** with version number

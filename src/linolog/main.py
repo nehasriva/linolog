@@ -10,9 +10,9 @@ import logging
 import time
 from datetime import datetime
 
-from config import Config
-from folder_watcher import FolderWatcher
-from processor import PrintProcessor
+from linolog.config import Config
+from linolog.folder_watcher import FolderWatcher
+from linolog.processor import PrintProcessor
 
 def setup_logging():
     """Set up logging configuration."""

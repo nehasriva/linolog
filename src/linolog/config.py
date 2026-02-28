@@ -12,7 +12,7 @@ class Config:
     GOOGLE_SHEET_NAME = os.getenv('GOOGLE_SHEET_NAME', 'Sheet1')
     
     # Folder Watching
-    WATCH_DIRECTORY = os.getenv('WATCH_DIRECTORY', '/Users/nehasrivastava/LinocutArchive')
+    WATCH_DIRECTORY = os.getenv('WATCH_DIRECTORY', os.path.expanduser('~/LinocutArchive'))
     
     # Agent Configuration
     ENABLE_METADATA_FILLER = os.getenv('ENABLE_METADATA_FILLER', 'true').lower() == 'true'

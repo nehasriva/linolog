@@ -1,4 +1,5 @@
 import os
+import logging
 import yaml
 import re
 from datetime import datetime
@@ -96,6 +97,4 @@ class MetadataLoader:
             if any(file.lower().endswith(ext) for ext in image_extensions):
                 return os.path.join(folder_path, file)
         
-        return None
-
-import logging 
+        return None 

@@ -6,9 +6,9 @@ Test script for LinoLog setup verification.
 import os
 import sys
 import logging
-from config import Config
-from metadata_loader import MetadataLoader
-from sheet_writer import SheetWriter
+from linolog.config import Config
+from linolog.metadata_loader import MetadataLoader
+from linolog.sheet_writer import SheetWriter
 
 def test_config():
     """Test configuration loading."""
@@ -83,7 +83,7 @@ def main():
     
     if passed == total:
         print("🎉 All tests passed! LinoLog is ready to use.")
-        print("Run 'python main.py' to start the system.")
+        print("Run 'linolog' to start the system.")
     else:
         print("⚠️  Some tests failed. Please check the setup instructions.")
         sys.exit(1)

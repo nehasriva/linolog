@@ -1,16 +1,16 @@
 import os
 import logging
 from typing import Dict, Any, List
-from metadata_loader import MetadataLoader
-from sheet_writer import SheetWriter
-from agents.metadata_filler import MetadataFillerAgent
-from agents.color_agent import ColorAgent
-from agents.tag_agent import TagAgent
-from tools_normalizer import normalize_tools
-from agents.llm_color_agent import LLMColorAgent
-from agents.llm_tag_agent import LLMTagAgent
-from llm_client import LLMClient
-from config import Config
+from linolog.metadata_loader import MetadataLoader
+from linolog.sheet_writer import SheetWriter
+from linolog.agents.metadata_filler import MetadataFillerAgent
+from linolog.agents.color_agent import ColorAgent
+from linolog.agents.tag_agent import TagAgent
+from linolog.tools_normalizer import normalize_tools
+from linolog.agents.llm_color_agent import LLMColorAgent
+from linolog.agents.llm_tag_agent import LLMTagAgent
+from linolog.llm_client import LLMClient
+from linolog.config import Config
 
 class PrintProcessor:
     """Main processor that orchestrates the entire workflow."""
@@ -232,7 +232,7 @@ class PrintProcessor:
             # Show available options for tool-related fields
             options_text = ""
             if field in ['carving_tools', 'brayer_type', 'burnish_type', 'paper_type']:
-                from tools_normalizer import TOOL_STANDARDS
+                from linolog.tools_normalizer import TOOL_STANDARDS
                 if field in TOOL_STANDARDS:
                     options = list(TOOL_STANDARDS[field].keys())
                     options_text = f" (options: {', '.join(options)})"

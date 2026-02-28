@@ -41,6 +41,9 @@ dependencies = [
     "watchdog>=2.1.0",
     "openai>=1.0.0",
     "anthropic>=0.7.0",
+    "gspread>=5.0.0",
+    "oauth2client>=4.0.0",
+    "python-dotenv>=1.0.0",
 ]
 
 [project.optional-dependencies]
@@ -60,7 +63,10 @@ Repository = "https://github.com/nehasriva/linolog"
 "Discussions" = "https://github.com/nehasriva/linolog/discussions"
 
 [project.scripts]
-linolog = "main:main"
+linolog = "linolog.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.black]
 line-length = 88
@@ -88,17 +94,16 @@ python_functions = ["test_*"]
 addopts = [
     "--strict-markers",
     "--strict-config",
-    "--cov=.",
+    "--cov=linolog",
     "--cov-report=term-missing",
     "--cov-report=html",
 ]
 
 [tool.coverage.run]
-source = ["."]
+source = ["linolog"]
 omit = [
     "*/tests/*",
     "*/test_*",
-    "setup.py",
 ]
 
 [tool.coverage.report]

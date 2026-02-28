@@ -32,27 +32,26 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pytest pytest-cov black flake8 mypy
-    
+        pip install -e ".[dev]"
+
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 src/linolog --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
-    
+        flake8 src/linolog --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+
     - name: Check formatting with black
       run: |
-        black --check --diff .
-    
+        black --check --diff src/ tests/
+
     - name: Type check with mypy
       run: |
-        mypy . --ignore-missing-imports
-    
+        mypy src/linolog --ignore-missing-imports
+
     - name: Test with pytest
       run: |
-        pytest --cov=. --cov-report=xml
+        pytest --cov=linolog --cov-report=xml
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
