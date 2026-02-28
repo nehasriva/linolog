@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="linolog-logo.png" alt="LinoLog" width="200">
+  <img src="linolog-logo.png" alt="LinoLog" width="600">
 </p>
 
 <h1 align="center">LinoLog</h1>
@@ -11,10 +11,9 @@
 <p align="center">
   <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a>
-  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg" alt="Status">
 </p>
 
-## ✨ Features
+## Features
 
 - 🖼️ **Smart Folder Watching**: Automatically detects new print folders with robust handling for dropped-in folders
 - 🧠 **AI Agents**: Metadata filler, color detection, tag suggestions, and LLM-enhanced analysis
@@ -234,15 +233,3 @@ The system is modular and extensible:
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Built for the linocut printmaking community
-- Inspired by the need for better print documentation
-- Thanks to all contributors and users
-
-## 📞 Support
-
-- **Issues**: [GitHub Issues](https://github.com/nehasriva/linolog/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/nehasriva/linolog/discussions)
-- **Documentation**: [Wiki](https://github.com/nehasriva/linolog/wiki)
