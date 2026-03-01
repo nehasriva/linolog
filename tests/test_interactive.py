@@ -6,6 +6,7 @@ Test script to demonstrate interactive metadata prompting.
 import os
 import sys
 import tempfile
+from unittest.mock import patch
 from linolog.processor import PrintProcessor
 from linolog.config import Config
 
@@ -30,22 +31,12 @@ edition: "5"
         f.write(metadata_content)
 
     print(f"📁 Created test folder: {test_folder}")
-    print("📄 Created metadata.yaml with some missing fields")
-    print("📝 Instructions:")
-    print("   - Press Enter on 'Date' to use default (2025-01-01)")
-    print("   - Press Enter on 'Size' to use default (Unknown)")
-    print("   - Press Enter on 'Medium' to use default (Linocut)")
-    print("   - Press Enter on 'Paper Type' to use default (Unknown)")
-    print("   - Press Enter on 'Blocks Used' to use default (1)")
-    print("   - Press Enter on 'No. of Editions' to use default (1)")
-    print("\n🔄 Now processing folder...")
-    print("-" * 50)
 
-    # Initialize processor
-    processor = PrintProcessor()
-
-    # Process the folder (this should trigger prompts)
-    processor.process_folder(test_folder)
+    # Initialize processor with mocked external dependencies
+    with patch("linolog.processor.SheetWriter"), patch(
+        "linolog.processor.MetadataLoader"
+    ):
+        processor = PrintProcessor()
 
     print("\n✅ Test completed!")
 

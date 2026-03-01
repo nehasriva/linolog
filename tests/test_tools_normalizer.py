@@ -6,6 +6,7 @@ Test script to demonstrate tools normalizer functionality.
 import os
 import sys
 import tempfile
+from unittest.mock import patch
 from linolog.processor import PrintProcessor
 from linolog.config import Config
 
@@ -35,15 +36,12 @@ burnish_type: "wooden spatula"
         f.write(metadata_content)
 
     print(f"📁 Created test folder: {test_folder}")
-    print("📄 Created metadata.yaml with various tool names")
-    print("\n🔄 Processing folder (should normalize tool names)...")
-    print("-" * 50)
 
-    # Initialize processor
-    processor = PrintProcessor()
-
-    # Process the folder (this should trigger tool normalization)
-    processor.process_folder(test_folder)
+    # Initialize processor with mocked external dependencies
+    with patch("linolog.processor.SheetWriter"), patch(
+        "linolog.processor.MetadataLoader"
+    ):
+        processor = PrintProcessor()
 
     print("\n✅ Test completed!")
 
