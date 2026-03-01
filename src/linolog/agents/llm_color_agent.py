@@ -223,7 +223,7 @@ class LLMColorAgent(BaseAgent):
             self.logger.error(f"Failed to compress image: {e}")
             return None
 
-    def _find_print_image(self, folder_path: str) -> str:
+    def _find_print_image(self, folder_path: str) -> Optional[str]:
         """Find the main print image in the folder."""
         image_extensions = [".jpg", ".jpeg", ".png"]
 
@@ -240,7 +240,7 @@ class LLMColorAgent(BaseAgent):
 
         return None
 
-    def _rgb_to_color_name(self, rgb: np.ndarray) -> str:
+    def _rgb_to_color_name(self, rgb: np.ndarray) -> Optional[str]:
         """Convert RGB values to color name (fallback method)."""
         r, g, b = rgb
 

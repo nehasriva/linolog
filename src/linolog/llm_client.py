@@ -1,15 +1,16 @@
 import os
 import base64
-from typing import Optional
+from typing import Any, Optional
 import logging
 
 
 class LLMClient:
     """Simple LLM client interface for LinoLog agents."""
 
-    def __init__(self, provider="openai", api_key=None):
+    def __init__(self, provider: str = "openai", api_key: Optional[str] = None):
         self.provider = provider
         self.logger = logging.getLogger(__name__)
+        self.client: Any = None
 
         # Set API key based on provider
         if provider == "openai":

@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 from PIL import Image
 from sklearn.cluster import KMeans
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 from .base_agent import BaseAgent
 
 
@@ -46,7 +46,7 @@ class ColorAgent(BaseAgent):
 
         return updated_metadata
 
-    def _find_print_image(self, folder_path: str) -> str:
+    def _find_print_image(self, folder_path: str) -> Optional[str]:
         """Find the main print image in the folder."""
         image_extensions = [".jpg", ".jpeg", ".png"]
 
@@ -98,7 +98,7 @@ class ColorAgent(BaseAgent):
             self.logger.error(f"Error analyzing colors: {e}")
             return []
 
-    def _rgb_to_color_name(self, rgb: np.ndarray) -> str:
+    def _rgb_to_color_name(self, rgb: np.ndarray) -> Optional[str]:
         """Convert RGB values to color name."""
         r, g, b = rgb
 

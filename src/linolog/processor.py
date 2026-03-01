@@ -3,6 +3,7 @@ import logging
 from typing import Dict, Any, List
 from linolog.metadata_loader import MetadataLoader
 from linolog.sheet_writer import SheetWriter
+from linolog.agents.base_agent import BaseAgent
 from linolog.agents.metadata_filler import MetadataFillerAgent
 from linolog.agents.color_agent import ColorAgent
 from linolog.agents.tag_agent import TagAgent
@@ -25,7 +26,7 @@ class PrintProcessor:
 
     def _setup_agents(self):
         """Set up the agent system."""
-        agents = []
+        agents: List[BaseAgent] = []
 
         # Initialize LLM client if enabled
         llm_client = None
@@ -315,26 +316,6 @@ class PrintProcessor:
             self.logger.info(f"Saved metadata to {metadata_path}")
             return True
 
-        except Exception as e:
-            self.logger.error(f"Failed to save metadata file: {e}")
-            return False
-
-    def _save_metadata_file(self, folder_path: str, metadata: Dict[str, Any]) -> bool:
-        """Save metadata to YAML file in the folder."""
-        try:
-            yaml_path = os.path.join(folder_path, "metadata.yaml")
-            with open(yaml_path, "w", encoding="utf-8") as file:
-                import yaml
-
-                yaml.dump(
-                    metadata,
-                    file,
-                    default_flow_style=False,
-                    allow_unicode=True,
-                    sort_keys=False,
-                )
-            self.logger.info(f"Saved metadata to {yaml_path}")
-            return True
         except Exception as e:
             self.logger.error(f"Failed to save metadata file: {e}")
             return False

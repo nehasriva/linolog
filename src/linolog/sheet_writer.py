@@ -1,6 +1,6 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 import logging
 from linolog.config import Config
 
@@ -10,8 +10,8 @@ class SheetWriter:
 
     def __init__(self):
         self.logger = logging.getLogger(__name__)
-        self.client = None
-        self.sheet = None
+        self.client: Optional[Any] = None
+        self.sheet: Any = None
         self._setup_client()
 
     def _setup_client(self):
