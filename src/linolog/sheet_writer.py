@@ -30,6 +30,7 @@ class SheetWriter:
             self.client = gspread.authorize(creds)
 
             # Open the spreadsheet
+            assert Config.GOOGLE_SHEET_ID is not None
             self.sheet = self.client.open_by_key(Config.GOOGLE_SHEET_ID).worksheet(
                 Config.GOOGLE_SHEET_NAME
             )

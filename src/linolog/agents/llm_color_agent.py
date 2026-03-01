@@ -153,10 +153,12 @@ class LLMColorAgent(BaseAgent):
             import io
 
             # Open image
-            with Image.open(image_path) as img:
+            with Image.open(image_path) as raw_img:
                 # Convert to RGB if needed
-                if img.mode != "RGB":
-                    img = img.convert("RGB")
+                if raw_img.mode != "RGB":
+                    img = raw_img.convert("RGB")
+                else:
+                    img = raw_img
 
                 # Get original dimensions
                 original_width, original_height = img.size
