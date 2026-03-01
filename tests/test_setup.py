@@ -22,7 +22,9 @@ def test_google_sheets():
     """Test Google Sheets connection is attempted correctly."""
     with patch("linolog.sheet_writer.gspread") as mock_gspread, patch(
         "linolog.sheet_writer.ServiceAccountCredentials"
-    ) as mock_creds:
+    ) as mock_creds, patch("linolog.sheet_writer.Config") as mock_config:
+        mock_config.GOOGLE_SHEET_ID = "test-sheet-id"
+        mock_config.GOOGLE_SHEET_NAME = "Sheet1"
         mock_creds.from_json_keyfile_name.return_value = MagicMock()
         mock_client = MagicMock()
         mock_gspread.authorize.return_value = mock_client
